@@ -8,15 +8,6 @@ var players = {};
 var bullet = {};
 var bullets = 0;
 
-var star = {
-	x: Math.floor(Math.random() * 700) + 50,
-	y: Math.floor(Math.random() * 500) + 50
-};
-var scores = {
-	blue: 0,
-	red: 0
-};
-
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
@@ -130,12 +121,7 @@ io.on('connection', function (socket) {
 			}
 		});
 	});
-	
-
 });
-
-
-
 
 server.listen(40180, function () {
 	console.log(`Listening on ${server.address().port}`);
