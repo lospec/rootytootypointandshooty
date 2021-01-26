@@ -1,0 +1,19 @@
+{
+  "name": "phaser_tut2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "gulp"
+  },
+  "author": "Scott Westover",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "gulp": "^4.0.2",
+    "gulp-include": "^2.4.1",
+    "gulp-sass": "^4.1.0",
+    "socket.io": "^2.1.0"
+  }
+}

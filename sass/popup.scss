@@ -1,0 +1,84 @@
+$dark: #333;
+$fill: white;
+$bg: #ccc;
+//when popup is open, disable scroll on body
+body.popupOpen, body.popupOpen #user-bar {
+	margin-right: 17px;
+	overflow-y: hidden;
+}
+
+.popup {
+  position: fixed;
+  top: -2em;
+  bottom: -2em;
+  left: -2em;
+  right: -2em;
+  background: rgba($dark,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  padding: 3em;
+  max-height: 100%;
+  overflow-y: scroll;
+
+  .content {
+    background: $bg;
+    width: 400px;
+    border-radius: 0.5em;
+    padding: 2em;
+    box-shadow: 5px 5px 16px 0px rgba(0,0,0,0.2);
+    text-align: center;
+    max-height: calc(100vh - 6em);
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    h2 {
+        margin-top: 0;
+    }
+
+
+    p svg {
+        path {fill: $fill}
+        position: relative;
+        margin: 0 0.5em;
+        top: 0.125em;
+    }
+
+    .buttons {
+    	display: flex;
+		justify-content: flex-end; 	//right align
+		align-items: center; 		//vertical align
+		margin-bottom: -0.5em; 		//undo button margin
+		button {
+			min-width: 6em;
+			margin: 0.5em 0 0.5em 0.5em;
+		}
+    }
+  }
+
+  //when open / enabled
+  &.open {
+    display: flex;
+  }
+}
+
+
+//less than full width
+@media (max-width: calc(400px + 6em) ) {
+	.popup .content {
+		width: 100%;
+		padding: 2em 1em;
+		overflow-y: auto;
+		//border: solid red 1px;
+	}
+}
+
+//less than full height
+@media (max-height: calc(100% + 6em) ) {
+	.popup .content {
+		height: 100%;
+		padding: 2em 1em;
+		overflow-y: scroll;
+	}
+}

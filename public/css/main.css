@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "04B03";
+  src: url("/fonts/04B03.ttf"); }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: black;
+  font-family: 04B03;
+  overflow: hidden; }
+
+#chat {
+  position: fixed;
+  left: 5px;
+  bottom: 5px;
+  height: 200px;
+  width: 800px;
+  max-width: 100%;
+  color: white;
+  font-family: 04B03;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden; }
+
+.popup.join .error {
+  display: none;
+  color: #941a1a;
+  font-weight: bold;
+  padding: 0.25em 1em; }
+  .popup.join .error.visible {
+    display: block; }
