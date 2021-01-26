@@ -152,6 +152,7 @@ function startGame(player) {
 		let angle = bullet.angle * (Math.PI/180);
 		let newBullet = PIXI.Sprite.from('/images/bullet_basic.png');
 		newBullet.serverId = bullet;
+		newBullet.owner = bullet.owner;
 		//newBullet.anchor.set(0.5, 0.5);
 		newBullet.x = bullet.x*SCALE + SCALE*10*Math.cos(angle);
 		newBullet.y = (bullet.y - CSH/2) * SCALE + SCALE*10*Math.sin(angle); //this needs to be adjusted for characters of varied height

@@ -74,7 +74,7 @@ io.on('connection', function (socket) {
 			
 			socket.on('chat', function (message) {
 				console.log(socket.id,players[socket.id].name+':',message);
-				oi.emit('chat', String(message),players[socket.id].name);
+				io.emit('chat', String(message),players[socket.id].name);
 			});
 		
 			// when a player moves, update the player data

@@ -139,11 +139,11 @@ function gameLoop(delta) {
 		b.y += b.v.y;
 	
 		//check for collission
-		if (
-			b.x > GAME.player.sprite.x - 3*SCALE &&
-			b.x < GAME.player.sprite.x + 3*SCALE &&
-			b.y > GAME.player.sprite.y - 12*SCALE &&
-			b.y < GAME.player.sprite.y
+		if (!b.owner == GAME.player.id &&				//not own bullet
+			b.x > GAME.player.sprite.x - 3*SCALE &&		//more left than left side of sprite
+			b.x < GAME.player.sprite.x + 3*SCALE && 	//less left than right side of sprite
+			b.y > GAME.player.sprite.y - 12*SCALE &&	//more down than top of sprite
+			b.y < GAME.player.sprite.y					//less down than bottom of sprite
 			) {
 				GAME.player.sprite.x = 0; 
 				GAME.player.sprite.y = 0; 
@@ -323,6 +323,7 @@ function startGame(player) {
 		let angle = bullet.angle * (Math.PI/180);
 		let newBullet = PIXI.Sprite.from('/images/bullet_basic.png');
 		newBullet.serverId = bullet;
+		newBullet.owner = bullet.owner;
 		//newBullet.anchor.set(0.5, 0.5);
 		newBullet.x = bullet.x*SCALE + SCALE*10*Math.cos(angle);
 		newBullet.y = (bullet.y - CSH/2) * SCALE + SCALE*10*Math.sin(angle); //this needs to be adjusted for characters of varied height

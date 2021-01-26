@@ -43,11 +43,11 @@ function gameLoop(delta) {
 		b.y += b.v.y;
 	
 		//check for collission
-		if (
-			b.x > GAME.player.sprite.x - 3*SCALE &&
-			b.x < GAME.player.sprite.x + 3*SCALE &&
-			b.y > GAME.player.sprite.y - 12*SCALE &&
-			b.y < GAME.player.sprite.y
+		if (!b.owner == GAME.player.id &&				//not own bullet
+			b.x > GAME.player.sprite.x - 3*SCALE &&		//more left than left side of sprite
+			b.x < GAME.player.sprite.x + 3*SCALE && 	//less left than right side of sprite
+			b.y > GAME.player.sprite.y - 12*SCALE &&	//more down than top of sprite
+			b.y < GAME.player.sprite.y					//less down than bottom of sprite
 			) {
 				GAME.player.sprite.x = 0; 
 				GAME.player.sprite.y = 0; 
