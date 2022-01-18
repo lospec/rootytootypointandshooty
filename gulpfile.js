@@ -39,7 +39,7 @@ gulp.task("css", function(done) {
 
 
 //start watchers 
-gulp.task('default', function(){
+gulp.task('watch', function(){
     //watch scripts folder for changes in any files
     gulp.watch('js/**/*.js', gulp.series('js')); 
     
@@ -47,4 +47,13 @@ gulp.task('default', function(){
     gulp.watch('sass/**/*.scss', gulp.series('css')); 
     
 });
+
+
+//the one task to rule them all
+gulp.task('default',
+	gulp.series(
+		'css',
+		'js'
+	)
+);
 
